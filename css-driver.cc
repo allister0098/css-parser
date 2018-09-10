@@ -24,6 +24,7 @@ css_driver::parse (const std::string &f)
   scan_end ();
   std::cout << stylesheet.rules[0]->selectors[0].id << std::endl;
   std::cout << stylesheet.rules[0]->selectors[1].tag << std::endl;
+  std::cout << begin(stylesheet.rules[0]->declarations)->first << std::endl;
   return res;
 
 }

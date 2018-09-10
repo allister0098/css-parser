@@ -38,6 +38,18 @@ public:
   CSSBaseValue(T const& value) : _ptr(new m_data<T>(value)) {
     type = value.type;
   }
+
+  ~CSSBaseValue() {
+    if (this->_ptr)
+      delete this->_ptr;
+    this->_ptr = nullptr;
+  }
+
+  template <typename T>
+  inline const T& get() {
+    return static_cast<m_data<T>&>(*this->_ptr)._value;
+  }
+
 };
 };
 
